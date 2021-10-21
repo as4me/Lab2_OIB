@@ -61,6 +61,9 @@ class HomeActivity : AppCompatActivity() {
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
                                     Log.d("Firebase", "User password updated.")
+                                    Toast.makeText(this,"User password updated.",Toast.LENGTH_SHORT).show()
+                                    FirebaseAuth.getInstance().signOut();
+                                    startActivity(Intent(this,MainActivity::class.java))
                                 }
                             }
                     } else{
